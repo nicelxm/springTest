@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--无参数-->
+    <bean id="testBean" class="test1.TestBean"/>
+    <!--有参数-->
+    <bean id="testBean1" class="test1.TestBean">
+        <constructor-arg index="0" value="DEFAULT"/>
+    </bean>
+
+    <!--使用静态工厂 静态方法-->
+    <bean id="testBeanFactory" class="test1.TestBeanFactory" factory-method="getInstance"/>
+
+    <bean id="testBeanFactoryWithArg" class="test1.TestBeanFactory" factory-method="getInstance">
+        <constructor-arg index="0" value="DEFAULT NAME"/>
+    </bean>
+
+    <!--使用工厂实例化 非静态方法-->
+    <bean id="testBeanFactory1" class="test1.TestBeanFactory"/>
+    <bean id="testBean2" factory-bean="testBeanFactory1" factory-method="getInstance1">
+        <constructor-arg index="0" value="factory1 name"/>
+    </bean>
+
+
+
+</beans>
