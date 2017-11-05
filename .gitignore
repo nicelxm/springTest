@@ -25,3 +25,4 @@
 .lein-plugins/
 .lein-failures
 .nrepl-port
+.idea/
